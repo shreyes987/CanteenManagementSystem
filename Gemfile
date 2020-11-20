@@ -11,6 +11,8 @@ gem 'mysql2', '>= 0.4.4'
 gem 'devise'
 # Used for generating Access token
 gem 'jwt'
+# Use for Serializer
+gem 'active_model_serializers'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
