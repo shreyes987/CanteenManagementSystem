@@ -7,6 +7,10 @@ ruby '2.6.6'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4'
+# Used for generating user
+gem 'devise'
+# Used for generating Access token
+gem 'jwt'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
