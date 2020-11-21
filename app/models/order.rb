@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   has_many :order_items
   validates :order_status, inclusion: { in: %w(INKITCHEN PERPARING SERVED) }
-
+  after_create :set_order_number
   validates :payment_status, inclusion: {in: %w(PAID UNPAID)}
 
 
@@ -18,6 +18,12 @@ class Order < ApplicationRecord
     if(current_user != "Guest")
       order.user_id = current_user.id
     end
+  end
+
+  private
+  def set_order_number
+    self.order_number = self.id + 100
+    self.update_column(:order_number , self.order_number)
   end
 
 end

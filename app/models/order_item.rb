@@ -7,7 +7,7 @@ class OrderItem < ApplicationRecord
     order.payment_status = "UNPAID"
     order.order_amount = Order.calculate_total_amount(params[:order_items])
     order.user_id =Order.add_user_id(order , current_user)
-    if order.save
+    if Order.create(order_status: order.order_status, payment_status: order.payment_status, order_amount: order.order_amount, user_id: order.user_id)
       params[:order_items].each do |order_item|
         order_item[:order_id] = order.id
       end
