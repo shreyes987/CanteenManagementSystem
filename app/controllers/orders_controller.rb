@@ -1,5 +1,10 @@
 class OrdersController < ApplicationController
 
+  def show
+    order = Order.all
+    render json: {orders: ActiveModel::Serializer::CollectionSerializer.new(order ,each_serializer: OrderSerializer) , status: 200}
+  end
+
   def update_order_status
     order = Order.find_by_id(params[:id])
     if order
@@ -31,6 +36,7 @@ class OrdersController < ApplicationController
     order = Order.find_by_id(params[:id])
     if order
       if order.order_status != "SERVED"
+        OrderItem.remove_order_items(order)
         if order.destroy
           render json: {message: "order cancelled succesfully" , status: 200}
         else

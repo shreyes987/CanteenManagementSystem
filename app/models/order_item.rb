@@ -21,4 +21,8 @@ class OrderItem < ApplicationRecord
     end
   end
 
+  def self.remove_order_items(order)
+    OrderItem.where("order_id = ?" , order.id).destroy_all
+  end
+
 end

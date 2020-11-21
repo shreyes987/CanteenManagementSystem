@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     devise_for :users, controllers: { sessions: :sessions  , registrations: :registrations},
                path_names: { sign_in: :login }
     resource :order_items, only: [:create]
+    resource :orders, only: [:show]
     resource :menus, only: [:show , :create]
     post 'orders/update_order_status'
     post 'orders/cancel_order'
