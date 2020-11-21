@@ -1,9 +1,9 @@
 class RegistrationsController < Devise::RegistrationsController
   def new
     if(User.create!(sign_up_params))
-      render json: {message: "User registered"}
+      render json: {message: "User registered" , status: 200}
     else
-      render json: {message: "Unable to register user"}
+      render json: {message: "Unable to register user" , status: :unprocessable_entity}
     end
   end
 
