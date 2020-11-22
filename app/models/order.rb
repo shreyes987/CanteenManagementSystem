@@ -20,6 +20,14 @@ class Order < ApplicationRecord
     end
   end
 
+  def self.set_intial_order_status(order)
+    order.order_status = "INKITCHEN"
+  end
+
+  def self.set_intial_payment_status(order)
+    order.payment_status = "UNPAID"
+  end
+
   private
   def set_order_number
     self.order_number = self.id + 100

@@ -3,8 +3,8 @@ class OrderItem < ApplicationRecord
 
   def self.create_order_items(params , current_user)
     order = Order.new
-    order.order_status = "INKITCHEN"
-    order.payment_status = "UNPAID"
+    Order.set_intial_order_status(order)
+    Order.set_intial_payment_status(order)
     order.order_amount = Order.calculate_total_amount(params[:order_items])
     order.user_id =Order.add_user_id(order , current_user)
     if order.save

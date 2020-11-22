@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
   end
 
   def cancel_order
-    order = Order.find_by_id(params[:id])
+    order = Order.find_by_order_number(params[:order_number])
     if order
       if order.order_status != "SERVED"
         OrderItem.remove_order_items(order)
