@@ -49,5 +49,5 @@ test:
 #
 production:
   <<: *default
-  url: "mysql2://b739a0d34bbb29:186fa746@eu-cdbr-west-01.cleardb.com/heroku_c309e861cb9785c?reconnect=true"
+  url: "mysql2://baaacd25b0617d:c9b2334a@us-cdbr-east-03.cleardb.com/heroku_e524b189f326c92?reconnect=true"
   database: CanteenManagementSystem_production
